@@ -294,3 +294,16 @@ http://localhost:3000/product/2/review/2
 
 FILE NAME: not-found.tsx at the /root app folder
 
+### File Colocation
+
+## **Day 4**
+
+### Private Folder
+
+- for separating UI logic from routing logic
+
+### File Structure
+
+- app
+  - \_lib
+    - page.tsx

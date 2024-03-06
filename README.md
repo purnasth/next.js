@@ -262,6 +262,7 @@ http://localhost:3000/product/2/review/2
 ### File Structure
 
 - app
+
   - product
     - [productId]
       - review
@@ -271,4 +272,7 @@ http://localhost:3000/product/2/review/2
     - page.tsx
   - layout.tsx
   - page.tsx
+
+### Catch- all Segments
+
 

@@ -275,4 +275,15 @@ http://localhost:3000/product/2/review/2
 
 ### Catch- all Segments
 
+...slug
+
+### File Structure
+
+- app
+  - docs
+    - [...slug]
+      - page.tsx
+  - layout.tsx
+  - page.tsx
+
 

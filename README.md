@@ -273,6 +273,8 @@ http://localhost:3000/product/2/review/2
   - layout.tsx
   - page.tsx
 
+  ### NOTE: here [productId] is a dynamic segment, and [reviewId] is a nested dynamic segment which makes the URL dynamic .. EG: instead of having 20 different folders for the 20 different products, we can have a single folder with a dynamic segment
+
 ### Catch- all Segments
 
 ...slug
@@ -307,3 +309,28 @@ FILE NAME: not-found.tsx at the /root app folder
 - app
   - \_lib
     - page.tsx
+
+### Route Groups
+
+=> allows you to logically group your routes and project files without affecting the URL structure
+
+### File Structure
+
+- app
+  - (auth)
+    - login
+      - page.tsx
+    - register
+      - page.tsx
+
+### Route Groups Test
+
+```bash
+http://localhost:3000/auth/login
+```
+
+### NOTE: here (auth) is a logical group, and it does not affect the URL structure => so now the URL structure is
+
+```bash
+http://localhost:3000/login
+```

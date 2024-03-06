@@ -171,8 +171,17 @@ http://localhost:3000/profile
   - layout.tsx
   - page.tsx
 
+### 3 layers of routing
+
+- app
+  - blog
+    - first
+      - page.tsx
+    - second
+      - page.tsx
+  - layout.tsx
+  - page.tsx
+
 
 ### Dynamic Routing
-
-
 

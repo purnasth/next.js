@@ -219,3 +219,56 @@ http://localhost:3000/product/
       - page.tsx
   - layout.tsx
   - page.tsx
+
+## **Day 3**
+
+### Nested Dynamic Routing
+
+- Next.js has a file system based nested dynamic routing system, which means, you can create a new file in the pages directory, and it will be automatically routed.
+
+### Nested Dynamic Routing Example
+
+```tsx
+import React from "react";
+
+const page = ({
+  params,
+}: {
+  params: { productId: string; reviewId: string };
+}) => {
+  return (
+    <>
+      <h2>Review Product Page</h2>
+
+      <h2>
+        Review {params.productId} for product {params.reviewId}
+      </h2>
+    </>
+  );
+};
+
+export default page;
+```
+
+- open your review page in your browser
+
+```bash
+http://localhost:3000/product/1/review/1
+http://localhost:3000/product/1/review/2
+http://localhost:3000/product/2/review/1
+http://localhost:3000/product/2/review/2
+```
+
+### File Structure
+
+- app
+  - product
+    - [productId]
+      - review
+        - [reviewId]
+          - page.tsx
+      - page.tsx
+    - page.tsx
+  - layout.tsx
+  - page.tsx
+

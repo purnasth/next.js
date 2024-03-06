@@ -286,4 +286,11 @@ http://localhost:3000/product/2/review/2
   - layout.tsx
   - page.tsx
 
+### 404 file
+
+- Next.js has a file system based 404 file, which means, you can create a new file in the pages directory, and it will be automatically routed.
+
+### 404 file Example
+
+FILE NAME: not-found.tsx at the /root app folder
 

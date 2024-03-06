@@ -112,9 +112,9 @@ http://localhost:3000
 - React Server Components (RSC) is a new way to build server-rendered UIs with React.
 
 - The architecture introduces a new way of creating React components, splitting them into two types:
+
   - Server components
   - Client components
-
 
 - Server components are a new primitive that enables developers to build UIs that can be rendered on the server and streamed to the client.
 
@@ -137,29 +137,29 @@ http://localhost:3000
 - add the following code to the file
 
 ```tsx
-import React from 'react'
+import React from "react";
 
 const About = () => {
   return (
     <div>
       <h1>About</h1>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;
 ```
 
 - Similarly, create a profile component
 
-```tsx
+````tsx
 - open your about page in your browser
 - open your profile page in your browser
 
 ```bash
 http://localhost:3000/about
 http://localhost:3000/profile
-```
+````
 
 ### File Structure
 
@@ -182,6 +182,40 @@ http://localhost:3000/profile
   - layout.tsx
   - page.tsx
 
-
 ### Dynamic Routing
 
+- Next.js has a file system based dynamic routing system, which means, you can create a new file in the pages directory, and it will be automatically routed.
+
+### Dynamic Routing Example
+
+```tsx
+import React from "react";
+
+const page = ({ params }: { params: { productId: string } }) => {
+  return (
+    <>
+      <h2> Details of the Product {params.productId}</h2>
+    </>
+  );
+};
+
+export default page;
+```
+
+- open your product page in your browser
+
+```bash
+http://localhost:3000/product/1
+http://localhost:3000/product/2
+http://localhost:3000/product/
+......
+```
+
+### File Structure
+
+- app
+  - product
+    - [productId]
+      - page.tsx
+  - layout.tsx
+  - page.tsx

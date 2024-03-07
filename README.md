@@ -335,7 +335,44 @@ http://localhost:3000/auth/login
 http://localhost:3000/login
 ```
 
-
 ## **Day 5**
 
 ### Layouts
+
+- For consistent UI across multiple pages like header at top and footer at bottom
+
+### File Structure
+
+- app
+  - layout.tsx
+  - page.tsx
+
+### Layouts Example
+
+```tsx
+export default function ProductDetailsLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <>
+      {children}
+      <h2>Features Product</h2>
+    </>
+  );
+}
+```
+
+### Nested Layouts
+
+### File Structure
+
+- app
+  - layout.tsx
+  - page.tsx
+  - products
+    - [productId]
+    - layout.tsx
+    - page.tsx
+

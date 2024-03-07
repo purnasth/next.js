@@ -334,3 +334,8 @@ http://localhost:3000/auth/login
 ```bash
 http://localhost:3000/login
 ```
+
+
+## **Day 5**
+
+### Layouts

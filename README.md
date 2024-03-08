@@ -376,9 +376,91 @@ export default function ProductDetailsLayout({
     - layout.tsx
     - page.tsx
 
-
 ## **Day 6**
 
 ### Route Group Layout
 
 - to organize your project in a manner that doesn't affect the URL structure
+
+### Routing Metadata
+
+- ensuring proper SEO is crucial for increasing visibility and attracting users
+- next.js introduced the Metadata API which allows you to define metadata for each page
+
+#### Metadata rules
+
+- both layout.tsx and page.tsx can export metadata. if defined in a layout, it applies to all pages in that layout, but if defined in a page, it applies to that page only
+
+### Title Metadata
+
+- the title field's primary purpose is to define the document's title, which is displayed in the browser's title bar or tab
+
+### Link Component Navigation
+
+- The `<Link>` component is a React component that extends the HTML `<a>` tag, and it's the primary way to navigate between routes in a Next.js application
+- To use it, we need to import it from the "next/link" module
+
+### Link Component Example
+
+```tsx
+import Link from "next/link";
+
+const page = () => {
+  return (
+    <>
+      <h1>Home Page</h1>
+      <Link href="/blog">Blog</Link>
+      <Link href="/profile">Profile</Link>
+      <Link href="/products/2" replace>
+        Products 2
+      </Link>
+    </>
+  );
+};
+
+export default page;
+```
+
+<!-- here `replace` on the Link brings back the page directly from the products/2 page to /home page .. as without replace it would be brought back to /products page  -->
+
+### Active Link on Navigation
+
+```tsx
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import "./style.css";
+
+const navLinks = [
+  { name: "Register", href: "/register" },
+  { name: "Login", href: "/login" },
+  { name: "Forgot Password", href: "/forgot-password" },
+];
+
+export default function ProductDetailsLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const pathname = usePathname();
+  return (
+    <>
+      {navLinks.map((link) => {
+        const isActive = pathname.startsWith(link.href);
+        return (
+          <Link
+            href={link.href}
+            key={link.name}
+            className={isActive ? "font-bold mr-4" : "text-blue-500 mr-4"}
+          >
+            {link.name}
+          </Link>
+        );
+      })}
+    </>
+  );
+}
+```
+
+### Navigating Programmatically
+

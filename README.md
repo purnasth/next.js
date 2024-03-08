@@ -464,3 +464,75 @@ export default function ProductDetailsLayout({
 
 ### Navigating Programmatically
 
+```tsx
+"use client";
+import { useRouter } from "next/navigation";
+
+export default function OrderProduct() {
+  const router = useRouter();
+  const handleClick = () => {
+    alert("Order placed successfully");
+    router.push("/");
+    // router.back();
+    // router.forward();
+  };
+
+  return (
+    <>
+      <h2>Order Product</h2>
+      <button onClick={handleClick}>Place Order</button>
+    </>
+  );
+}
+```
+
+### Templates
+
+- templates are similar to layouts in that they wrap each child layout or page
+- But, with templates, when a user navigates between routes that share a template, a new instance of the component is mounted, DOM elements are recreated, state is not preserved, and effects are re-synchronized
+- a template can be defined by exporting a template object from a template.js or template.tsx file
+
+```tsx
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import "./style.css";
+import { useState } from "react";
+
+const navLinks = [
+  { name: "Register", href: "/register" },
+  { name: "Login", href: "/login" },
+  { name: "Forgot Password", href: "/forgot-password" },
+];
+
+export default function ProductDetailsLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const pathname = usePathname();
+  const [input, setInput] = useState("");
+  return (
+    <>
+      <input value={input} onChange={(e) => setInput(e.target.value)} />
+      {navLinks.map((link) => {
+        const isActive = pathname.startsWith(link.href);
+        return (
+          <Link
+            href={link.href}
+            key={link.name}
+            className={isActive ? "font-bold mr-4" : "text-blue-500 mr-4"}
+          >
+            {link.name}
+          </Link>
+        );
+      })}
+    </>
+  );
+}
+```
+
+### Illustration Layout VS Template
+
+- if the file name is layout.tsx, when you put an input value and then redirect to the other pages like register, login, forgot-password, the input value will be preserved and will not be lost
+- but if the file name is template.tsx, when you put an input value and then redirect to the other pages like register, login, forgot-password, the input value will be lost and will not be preserved

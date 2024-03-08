@@ -376,3 +376,9 @@ export default function ProductDetailsLayout({
     - layout.tsx
     - page.tsx
 
+
+## **Day 6**
+
+### Route Group Layout
+
+- to organize your project in a manner that doesn't affect the URL structure

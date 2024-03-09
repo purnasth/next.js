@@ -486,6 +486,8 @@ export default function OrderProduct() {
 }
 ```
 
+## **Day 7**
+
 ### Templates
 
 - templates are similar to layouts in that they wrap each child layout or page
@@ -536,3 +538,79 @@ export default function ProductDetailsLayout({
 
 - if the file name is layout.tsx, when you put an input value and then redirect to the other pages like register, login, forgot-password, the input value will be preserved and will not be lost
 - but if the file name is template.tsx, when you put an input value and then redirect to the other pages like register, login, forgot-password, the input value will be lost and will not be preserved
+
+### Special Files
+
+- layout.tsx
+- template.tsx
+- error.tsx
+- loading.tsx
+- not-found.tsx
+- page.tsx
+
+### loading.tsx
+
+- this allows us to create loading states that are displayed to users while a specific route segment's content is loading
+
+```tsx
+export default function Loading() {
+  return (
+    <>
+      <h2>Loading...</h2>
+    </>
+  );
+}
+```
+
+### error.tsx
+
+- this allows us to create error states that are displayed to users when a specific route segment's content fails to load
+
+```tsx
+export default function Error() {
+  return (
+    <>
+      <h2>Error...</h2>
+    </>
+  );
+}
+```
+
+### Component Hierarchy
+
+<Layout>
+  <Template>
+    <ErrorBoundary fallback={<Error/>}>
+      <Suspense fallback={<Loading/>}>
+        <ErrorBoundary fallback={<NotFound/>}>
+          <Page/>
+        </ErrorBoundary>
+      </Suspense>
+    </ErrorBoundary>
+  </Template>
+</Layout>
+
+## **Day 8**
+
+### Parallel Routes
+
+- an advanced routing mechanism that allows for the simultaneous rendering of multiple pages with the same layout
+
+- parallel routes in next.js are defined using a feature known as slots, slots help structure our content in a modular fashion
+- to define a slot, we use the `@folder` naming convention
+- each slot is then passed as a prop to its corresponding `layout.tsx` file.
+
+### File Structure
+
+- app
+  - dashboard
+    - @notifications
+      - page.tsx
+    - @revenue
+      - page.tsx
+    - @users
+      - page.tsx
+
+### Benefits
+
+- the ability to split a single layout into various slots, making the code more manageable and easier to maintain

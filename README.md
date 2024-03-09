@@ -165,9 +165,9 @@ http://localhost:3000/profile
 
 - app
   - about
-    - about.tsx
+    - page.tsx
   - profile
-    - profile.tsx
+    - page.tsx
   - layout.tsx
   - page.tsx
 
@@ -614,3 +614,14 @@ export default function Error() {
 ### Benefits
 
 - the ability to split a single layout into various slots, making the code more manageable and easier to maintain
+
+### Intercepting Route
+
+- (.) dot notation => to match segments on the same level
+- (..) double dot notation => to match segments on the same level and all its children
+- (..)(..) => to match segments two levels above
+- (…) triple dot notation => to match all segments from the root app layout
+
+### Parallel Intercepting Routes
+
+- source code only important topic .. on commit 
